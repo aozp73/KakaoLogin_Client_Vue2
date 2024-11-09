@@ -1,0 +1,85 @@
+/* 팝업 창의 오버레이 */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* 배경을 어두운 반투명으로 설정 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* 팝업 콘텐츠 */
+.popup-content1 {
+  background: white;
+  padding: 40px;
+  width: 900px; /* 팝업 창 크기 조정 */
+  height: 600px; /* 팝업 창 높이 조정 */
+  border-radius: 10px;
+  position: relative; /* 닫기 버튼을 우측 상단에 배치하기 위해 relative 설정 */
+}
+.popup-content2 {
+  display: flex; /* Flexbox를 사용하여 두 영역을 나눔 */
+  background: white;
+  padding: 40px;
+  width: 900px; /* 팝업 창 크기 조정 */
+  height: 600px; /* 팝업 창 높이 조정 */
+  border-radius: 10px;
+  position: relative; /* 닫기 버튼을 우측 상단에 배치하기 위해 relative 설정 */
+  text-align: left;
+}
+
+/* 왼쪽 영역 (이미지) */
+.popup-left {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/* 오른쪽 영역 (input 태그들) */
+.popup-right {
+  flex: 1;
+  padding: 20px;
+  background: rgba(231, 230, 230, 0.7);
+}
+
+.popup-image {
+  width: 60px; /* 이미지 크기 조정 */
+  cursor: pointer;
+}
+
+/* 닫기 버튼 (우측 상단 X) */
+.close-button {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.close-button:hover {
+  color: #f00; /* X 버튼에 마우스를 올렸을 때 빨간색으로 변경 */
+}
+
+/* input 스타일 */
+.form-control {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
