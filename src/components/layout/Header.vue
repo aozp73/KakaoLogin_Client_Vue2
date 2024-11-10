@@ -6,6 +6,12 @@
         <button class="btn btn-primary" @click="goToLoginPage">로그인</button>
       </div>
       <div v-if="isLoggedIn">
+        <!-- <span class="me-2">{{ username }}</span> -->
+        <img
+          :src="profileImage"
+          alt="Profile Image"
+          class="profile-image me-3"
+        />
         <button class="btn btn-primary" @click="logOut">로그아웃</button>
       </div>
     </div>
@@ -15,12 +21,17 @@
 <script>
 export default {
   name: "LoginPage",
-  data() {
-    return {
-      isLoggedIn: false, // 로그인 상태를 나타내는 변수
-    };
+  computed: {
+    profileImage() {
+      return this.$store.getters.getProfileImage;
+    },
+    isLoggedIn() {
+      return this.$store.getters.isLoggedIn;
+    },
+    username() {
+      return this.$store.getters.getUsername;
+    },
   },
-  computed: {},
   methods: {
     goToLoginPage() {
       if (this.$route.path !== "/loginPage") {
@@ -32,7 +43,10 @@ export default {
         this.$router.push({ name: "mainPage" });
       }
     },
-    logOut() {},
+    logOut() {
+      this.$store.dispatch("logout");
+      this.goToLoginPage();
+    },
   },
 };
 </script>

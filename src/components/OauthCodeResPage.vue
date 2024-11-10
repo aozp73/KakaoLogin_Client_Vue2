@@ -41,13 +41,10 @@ export default {
       try {
         const response = await this.$axios.get(
           "http://localhost:80/getProfile?code=" + this.code,
-          {}
+          { withCredentials: true }
         );
 
-        // 응답 데이터가 이미 객체일 경우, 파싱할 필요 없음
         let responseData = response.data;
-
-        // 응답이 문자열인 경우에만 JSON.parse()
         if (typeof responseData === "string") {
           responseData = JSON.parse(responseData);
         }
@@ -57,14 +54,24 @@ export default {
         if (responseData.profile) {
           console.error("회원등록정보 존재");
           const profileData = JSON.parse(responseData.profile);
-          console.log("응답 정보2: ", profileData);
 
-          // 프로필 정보를 data에 저장하여 화면에 표시
-          this.userProfile = {
-            nickname: profileData.kakao_account.profile.nickname,
-            profile_image: profileData.kakao_account.profile.profile_image_url,
-          };
-          console.log("유저 정보: ", this.userProfile);
+          console.log("nickname: ", profileData.kakao_account.profile.nickname);
+          console.log(
+            "profile_image: ",
+            profileData.kakao_account.profile.profile_image_url
+          );
+
+          this.$store
+            .dispatch("login", {
+              username: profileData.kakao_account.profile.nickname,
+              profileImage: profileData.kakao_account.profile.profile_image_url,
+            })
+            .then(() => {
+              this.$nextTick(() => {
+                this.$router.push({ name: "mainPage" });
+                console.log("상태 업데이트 완료");
+              });
+            });
         } else {
           console.error("회원등록 필요");
           if (confirm("회원등록이 필요합니다. 이동하시겠습니까?")) {
