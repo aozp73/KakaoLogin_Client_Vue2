@@ -1,11 +1,14 @@
 import Vue from "vue";
+import axios from "axios";
 import App from "./App.vue";
+import router from "./router/index.js";
 
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+Vue.prototype.$axios = axios;
 Vue.config.productionTip = false;
 
 new Vue({
   render: (h) => h(App),
+  router,
 }).$mount("#app");

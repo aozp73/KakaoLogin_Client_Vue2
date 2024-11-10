@@ -1,0 +1,19 @@
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #ccc;
+  padding: 10px 20px;
+}
+
+.top-bar-left {
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.top-bar-right {
+  display: flex;
+  justify-content: flex-end;
+}

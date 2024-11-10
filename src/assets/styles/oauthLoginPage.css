@@ -1,0 +1,62 @@
+.ouathlogin-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 130px;
+  padding: 10px;
+}
+
+.kakao-text {
+  margin-top: 6px;
+  margin-left: 1px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.ouathlogin-content {
+  display: flex;
+  background: white;
+  padding: 27px;
+  width: 900px;
+  height: 600px;
+  border-radius: 10px;
+  text-align: left;
+  border: 3px solid #ccc;
+}
+
+.ouathlogin-left-box {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start; /* 왼쪽 정렬 */
+  align-items: flex-start; /* 위쪽 정렬 */
+}
+
+.ouathlogin-right-box {
+  flex: 1;
+  padding: 20px;
+  background: rgba(231, 230, 230, 0.7);
+}
+
+.popup-image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.form-group {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  width: 30%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+.form-group input {
+  width: 70%;
+}

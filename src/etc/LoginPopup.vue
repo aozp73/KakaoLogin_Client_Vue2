@@ -1,11 +1,9 @@
 <template>
+  <!-- 카카오톡 iframe 거부 정책으로 사용 x -->
+
   <div class="popup-overlay">
     <div v-if="isIframeOpen" class="popup-content1">
-      <iframe
-        src="https://www.example.com"
-        width="800px"
-        height="500px"
-      ></iframe>
+      <iframe :src="iframeSrc" width="800px" height="500px"></iframe>
       <button class="close-button" @click="closePopup">X</button>
     </div>
     <div v-if="!isIframeOpen" class="popup-content2">
@@ -49,14 +47,26 @@ export default {
   data() {
     return {
       isIframeOpen: false,
+      iframeSrc: "",
     };
   },
   methods: {
     closePopup() {
-      this.$emit("close"); // 부모에게 팝업 닫기를 알림
+      this.$emit("close");
     },
-    onKakaoLogin() {
+    async onKakaoLogin() {
       console.log("카카오 로그인 버튼 클릭됨");
+
+      try {
+        const response = await this.$axios.get("http://localhost:80/login", {});
+
+        console.log("로그인 url:", response.data);
+        // this.iframeSrc = response.data;
+        window.open(response.data, "_blank", "width=600,height=800");
+        this.isIframeOpen = true;
+      } catch (error) {
+        console.error("로그인 실패:", error);
+      }
       this.isIframeOpen = true;
     },
   },
