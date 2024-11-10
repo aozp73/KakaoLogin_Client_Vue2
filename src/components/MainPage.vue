@@ -10,17 +10,10 @@
 export default {
   name: "LoginPage",
   data() {
-    return {
-      isLoggedIn: false, // 로그인 상태를 나타내는 변수
-    };
+    return {};
   },
   computed: {},
-  methods: {
-    moveLoginPage() {
-      this.$router.push({ name: "loginPage" });
-    },
-    logOut() {},
-  },
+  methods: {},
 };
 </script>
 

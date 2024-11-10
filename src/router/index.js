@@ -3,6 +3,7 @@ import Router from "vue-router";
 import oauthLoginPage from "../components/OauthLoginPage.vue";
 import loginPage from "../components/LoginPage.vue";
 import mainPage from "../components/MainPage.vue";
+import oauthCodeResPage from "../components/OauthCodeResPage.vue";
 
 Vue.use(Router);
 
@@ -23,6 +24,11 @@ const router = new Router({
       path: "/oauthLoginPage",
       name: "oauthLoginPage",
       component: oauthLoginPage,
+    },
+    {
+      path: "/oauthCodeResPage",
+      name: "oauthCodeResPage",
+      component: oauthCodeResPage,
     },
   ],
 });

@@ -16,7 +16,7 @@
         </div>
       </div>
 
-      <!-- 오른쪽 입력박스 -->
+      <!-- 오른쪽 입력박스 (인증서 활용 방식에서 사용)-->
       <div class="ouathlogin-right-box">
         <div class="form-group">
           <label for="username">이름</label>
@@ -45,10 +45,7 @@
 export default {
   name: "LoginPage",
   data() {
-    return {
-      isIframeOpen: false,
-      iframeSrc: "",
-    };
+    return {};
   },
   methods: {
     closePopup() {
@@ -61,12 +58,10 @@ export default {
         const response = await this.$axios.get("http://localhost:80/login", {});
 
         console.log("로그인 url:", response.data);
-
-        this.isIframeOpen = true;
+        window.location.href = response.data;
       } catch (error) {
         console.error("로그인 실패:", error);
       }
-      this.isIframeOpen = true;
     },
   },
 };
