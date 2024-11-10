@@ -1,0 +1,18 @@
+.bordered-box {
+  border: 1px solid #ccc;
+  max-width: 400px;
+  height: 190px;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ensures space between input and button */
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: auto; /* Pushes the button to the bottom of the box */
+}

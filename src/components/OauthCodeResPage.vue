@@ -55,6 +55,7 @@ export default {
         console.log("응답 정보1: ", responseData);
 
         if (responseData.profile) {
+          console.error("회원등록정보 존재");
           const profileData = JSON.parse(responseData.profile);
           console.log("응답 정보2: ", profileData);
 
@@ -65,7 +66,12 @@ export default {
           };
           console.log("유저 정보: ", this.userProfile);
         } else {
-          console.error("profile 데이터가 없습니다.");
+          console.error("회원등록 필요");
+          if (confirm("회원등록이 필요합니다. 이동하시겠습니까?")) {
+            this.$router.push({ name: "loginPage" });
+          } else {
+            // 취소
+          }
         }
       } catch (error) {
         console.error("유저정보 획득 실패:", error);
